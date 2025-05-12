@@ -23,7 +23,7 @@ export default function Root() {
       }));
       navigateToUrl('/home');
     } else {
-      setError('Credenciales incorrectas');
+      setError('Combinación del nombre de usuario y contraseña no válida');
     }
   };
 
@@ -41,26 +41,40 @@ export default function Root() {
       title={"Ingresa a My BodyTech"}
       logo={Logos}
     >
-      <div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <div>
-          <label className="text-[14px]">Usuario:</label>
+      <div className="flex flex-col gap-4 items-center w-[26rem]">
+        <div className="flex flex-col w-full">
+          <label className="text-[12px]">Usuario:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="py-2 px-3 border border-gray-300 rounded-md text-[14px]"
+            placeholder="Ingrese su usuario"
           />
         </div>
-        <div>
-          <label className="text-[14px]">Contraseña:</label>
+        <div className="flex flex-col w-full">
+          <label className="text-[12px]">Contraseña:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="py-2 px-3 border border-gray-300 rounded-md text-[14px]"
+            placeholder="*********"
           />
         </div>
-        <button onClick={handleLogin}>
-          Iniciar Sesión
+        {error &&
+          <div className="w-full bg-red-50 rounded-md flex py-3 px-6 mt-[-5px]">
+            <p className="text-neutral-600 font-extralight text-[12px]">
+              {error}
+            </p>
+          </div>
+        }
+
+        <button
+          className="px-16 py-3 my-6 text-white bg-neutral-700 rounded-md text-[12px] hover:bg-neutral-800"
+          onClick={handleLogin}
+        >
+          Ingresar
         </button>
       </div>
     </AuthForm>
