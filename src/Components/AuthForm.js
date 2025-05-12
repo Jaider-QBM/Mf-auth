@@ -11,6 +11,7 @@ import {
 
 // logos
 import {
+    DefautlLogo,
     OperationLogo,
     BizzLogo,
     VirtualLogo,
@@ -26,12 +27,13 @@ import 'react-slideshow-image/dist/styles.css'
 
 export function AuthForm({ children, }) {
     const logos = [
-        OperationLogo,
-        BizzLogo,
-        VirtualLogo,
-        TrainerLogo,
-        ComercialLogo,
-        MedicalLogo
+        <DefautlLogo />,
+        <OperationLogo/>,
+        <BizzLogo/>,
+        <VirtualLogo/>,
+        <TrainerLogo/>,
+        <ComercialLogo/>,
+        <MedicalLogo/>
     ]
 
     return (
@@ -51,7 +53,7 @@ export function AuthForm({ children, }) {
                             {logos?.length > 0 &&
                                 logos?.map((logo, i) => (
                                     <Box key={i} className='each-slide'>
-                                        <img src={logo} alt='logo' />
+                                        {logo}
                                     </Box>
                                 ))}
                         </Fade>
@@ -61,19 +63,53 @@ export function AuthForm({ children, }) {
                     </Typography>
                     <div>{children}</div>
 
-                    <div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         <div
                             style={{
                                 color: '#6D6D6C',
-                                fontSize: '13px'
+                                fontSize: '13px',
+                                fontWeight: '200',
+                                gap: '15px',
+                                display: 'flex',
+                                flexDirection: 'column',
                             }}
                         >
                             <p>Si olvidaste tus datos de ingreso, comunícate</p>
-                            <p style={{ display: 'flex', justifyContent: 'center' }}>con mesa de ayuda</p>
+                            <p 
+                                style={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'center' 
+                                }}
+                            >
+                                con mesa de ayuda
+                            </p>
                         </div>
-                        <div style={{ color: '#6D6D6C', fontSize: '12px' }}>
-                            <p style={{ display: 'flex', justifyContent: 'center' }}>© 2021 BodyTech Corp.</p>
-                            <p style={{ display: 'flex', justifyContent: 'center' }}>Todos los derechos reservados</p>
+                        <div 
+                            style={{ 
+                                color: '#6D6D6C', 
+                                fontSize: '12px',
+                                fontWeight: '200',
+                                gap: '15px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <p 
+                                style={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'center' 
+                                }}
+                            >
+                                © 2021 BodyTech Corp.
+                            </p>
+                            <p 
+                                style={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'center'
+                                }}
+                            >
+                                Todos los derechos reservados
+                            </p>
                         </div>
                     </div>
                 </Box>

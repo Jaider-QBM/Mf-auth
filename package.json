@@ -1,7 +1,7 @@
 {
   "name": "@Mybodytech/mf-Auth",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack serve --env development --port 8530",
     "start:standalone": "webpack serve --env standalone",
     "build": "concurrently npm:build:*",
     "build:webpack": "webpack --mode=production",
@@ -49,6 +49,7 @@
     "@mui/material": "^7.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.56.3",
     "react-slideshow-image": "^4.3.2",
     "single-spa-react": "^6.0.2"
   }
